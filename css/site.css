@@ -67,9 +67,10 @@ pre[class*="language-"] {
     word-wrap: break-word;
 }
 
-a.nav-link.active {
-    padding-top: 8px;
-    padding-right: 8px;
-    padding-bottom: 8px;
-    padding-left: 0px;
+.main-font {
+    font-family: 'Racing Sans One', cursive;
+}
+
+.secondary-font {
+    font-family: 'Roboto Mono', monospace;
 }
