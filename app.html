@@ -52,8 +52,43 @@
         </nav>
         <!--CONTENT-->
         <main class="flex-shrink-0">
-            <div class="container col-xxl-8 px-4 py-5">
-                
+            <div class="container">
+                <div class="row row-cols-1 row-cols-lg-2">
+                    <div class="col border-end border-2">
+                        <h1 class="mt-5 display-5 fw-bold lh-1">ZERO TO 100: A JavaScript Challenge</h1>
+                        <h4 class="lead">
+                            ZERO TO 100 is a JavaScript exercise that displays the power of functions, loops and DOM manipulation. The program displays the numbers 0-100 while boldening the even numbers. 
+                        </h4>
+                        <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                        <p>Enter a starting value and an ending value. Press the button and the values will appear.</p>
+                    </div>
+                    <div class="col">
+                        <h5 class="mt-5">Enter Values</h5>
+                        <form class="row gy-2 gx-3">
+                            <div class="col">
+                                <input id="startValue" 
+                                       type="number" 
+                                       class="form-control" 
+                                       placeholder="Start Value" 
+                                       value=0
+                                       aria-label="Start Value"
+                                >
+                            </div>
+                            <div class="col">
+                                <input id="endValue" 
+                                       type="number" 
+                                       class="form-control" 
+                                       placeholder="End Value" 
+                                       value=100
+                                       aria-label="End Value"
+                                >
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <button id="btnSubmit" type="button" class="btn btn-dark btn-lg mt-1">Display Numbers</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </main>
         <!--FOOTER-->
