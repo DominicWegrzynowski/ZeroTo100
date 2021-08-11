@@ -62,37 +62,70 @@
         <!--CONTENT-->
         <main class="flex-shrink-0">
             <div class="container my-5 py-4 px-5 mt-5">
-                <h2 class="border-1 border-bottom border-dark">The Code For ZERO TO 100.</h2>
+                <h1 class="border-1 border-bottom border-dark secondary-font">The Code For ZERO TO 100.</h1>
                 <div class="row row-cols-1 row-cols-lg-2">
                     <!-- Code Window -->
                     <div class="col-lg-8">
                         <pre class="line-numbers">
                             <code class="language-javascript">
-                                function firstName(string fullName) {
-                                    alert(
-                                        fullName
-                                    );
+                                
+                                function getValues() {
+
+                                    //get values from user
+                                    let startValue = document.getElementById("startValue").value;
+                                    let endValue = document.getElementById("endValue").value;
+
+                                    //validate data
+                                    startValue = parseInt(startValue);
+                                    endValue = parseInt(endValue);
+
+                                    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                                        let numbers = generateNumbers(startValue, endValue);
+                                        displayNumbers(numbers);
+                                    }
+                                    else {
+                                        alert("Error: You must enter integers");
+                                    }
                                 }
 
-                                function middleName(string middleName) {
-                                    alert(
-                                        lastName
-                                    );
+                                function generateNumbers(startValue, endValue) {
+                                    
+                                    let numbers = [];
+                                    
+                                    for(let i = startValue; i <= endValue; i++) {
+                                        numbers.push(i);
+                                    }
+
+                                    return numbers;
                                 }
 
-                                function lastName(string lastName) {
-                                    alert(
-                                        lastName
-                                    );
+                                function displayNumbers(numbers) {
+
+                                    let templateRows = "";
+
+                                    for(var i = 0; i < numbers.length; i++) {
+                                        let number = numbers[i];
+                                        templateRows += `< tr >< td >${number}< td />< tr />`;
+                                    }
+
+                                    document.getElementById("results").innerHTML = templateRows;
                                 }
                             </code>
                         </pre>
                     </div>
                     <!-- Code Description -->
                     <div class="col-lg-4">
-                        <p>The Code is structured in one function.</p>
-                        <h5>Print Name</h5>
-                        <p>PrintName consists of three functions that are each responsible for printing one part of a name. firstName is responsible for printing the first name via the fullName parameter. middleName is responsible for printing the middle name via the middle name parameter. lastName is responsible for printing the last name via the lastName parameter.</p>
+                        <h4>The Design:</h4>
+                        <p>In order to keep the code as clean as possible, the program is encapsulated into three functions:  </p>
+                        <ul>
+                            <li><h5>getValues:</h5></li>
+                                <p>This function acts as the entry point of the program with the task of storing the values of the startValue and endValue input fields into variables by using JavaScript's built in document.GetElementById method. It then validates that the data is a number and calls the generateNumbers and displayNumbers functions.</p>
+                            
+                            <li><h5>generateNumbers</h5></li>
+                                <p>This function acts as the main logic of the program as it generates the array of numbers that will be displayed on the page. It takes in two arguments: startValue and endValue. The array of numbers is defined within the function. It then loops from the startValue argument's number to the endValue argument's number, pushing the current number to the end of the array. Finally it returns the array of numbers.</p>
+                            <li><h5>displayNumbers</h5></li>
+                                <p>Finally, all that's left is to manipulate the DOM to display the generated array of numbers to the page. To do this, this function takes in one argument: numbers(the previously generated array). First, a local empty string variable is declared(templateRows) which acts as a singular row in the table. Next, the function loops as many times as the array's length number. In this loop a template string is added to the templateRows variable with the neccessary HTML to insert a row in a HTML table with a number corresponding to the current number in the loop. Finally it assigns the document.getElementById("results").innerHTML property to the templateRows variable that was just generated.</p>
+                        </ul>
                     </div>
                 </div>
             </div>

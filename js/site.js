@@ -1,22 +1,23 @@
-//get the value from the interface 
-//controller function
+
 function getValues() {
-    //get values from the page
+
+    //get values from user
     let startValue = document.getElementById("startValue").value;
     let endValue = document.getElementById("endValue").value;
-
-    //validate input
+    
+    //validate data
     startValue = parseInt(startValue);
     endValue = parseInt(endValue);
 
-    //call generate numbers
-    let numbers = generateNumbers(startValue, endValue);
-
-    //call displayNumbers
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        let numbers = generateNumbers(startValue, endValue);
+        displayNumbers(numbers);
+    }
+    else {
+        alert("Error: You must enter integers");
+    }
 }
 
-//generate numbers from the start value to the end value
-//logic function(s)
 function generateNumbers(startValue, endValue) {
     
     let numbers = [];
@@ -28,8 +29,14 @@ function generateNumbers(startValue, endValue) {
     return numbers;
 }
 
-//display numbers and mark the even ones bold
-//display or view function
-function displayNumbers() {
-    
+function displayNumbers(numbers) {
+
+    let templateRows = "";
+
+    for(var i = 0; i < numbers.length; i++) {
+        let number = numbers[i];
+        templateRows += `<tr><td>${number}</td></tr>`;
+    }
+
+    document.getElementById("results").innerHTML = templateRows;
 }
