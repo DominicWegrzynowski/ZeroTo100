@@ -69,13 +69,12 @@
                     <div class="col-lg-8">
                         <pre class="line-numbers">
                             <code class="language-javascript">
-                                
                                 function getValues() {
 
                                     //get values from user
                                     let startValue = document.getElementById("startValue").value;
                                     let endValue = document.getElementById("endValue").value;
-
+                                    
                                     //validate data
                                     startValue = parseInt(startValue);
                                     endValue = parseInt(endValue);
@@ -97,16 +96,24 @@
                                         numbers.push(i);
                                     }
 
-                                    return numbers;
+                                    return numbers; 1
                                 }
 
                                 function displayNumbers(numbers) {
 
                                     let templateRows = "";
-
+                                    
+                                    //Note: html tags do not render correctly with prism. That is why there are spaces between them.
                                     for(var i = 0; i < numbers.length; i++) {
                                         let number = numbers[i];
-                                        templateRows += `< tr >< td >${number}< td />< tr />`;
+
+                                        if(i % 2) {
+                                            templateRows += `< tr >< td >< strong >${number}< strong />< td />< tr />`;
+                                        }
+                                        else {
+                                            templateRows += `< tr >< td >${number}< td />< tr />`;
+                                        }
+
                                     }
 
                                     document.getElementById("results").innerHTML = templateRows;
