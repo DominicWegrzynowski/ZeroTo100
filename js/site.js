@@ -26,7 +26,7 @@ function generateNumbers(startValue, endValue) {
         numbers.push(i);
     }
 
-    return numbers;
+    return numbers; 1
 }
 
 function displayNumbers(numbers) {
@@ -35,7 +35,14 @@ function displayNumbers(numbers) {
 
     for(var i = 0; i < numbers.length; i++) {
         let number = numbers[i];
-        templateRows += `<tr><td>${number}</td></tr>`;
+
+        if(i % 2) {
+            templateRows += `<tr><td><strong>${number}</strong></td></tr>`;
+        }
+        else {
+            templateRows += `<tr><td>${number}</td></tr>`;
+        }
+
     }
 
     document.getElementById("results").innerHTML = templateRows;
